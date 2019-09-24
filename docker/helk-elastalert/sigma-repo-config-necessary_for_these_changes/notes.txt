@@ -1,0 +1,46 @@
+list of fields not keyword and NOT to do .text
+process_id
+event_id
+record_number
+reporter_logon_id
+SubjectLogonId
+TargetLogonId
+user_logon_id
+process_id
+pipeline_id
+sequence_number
+sysmon_version
+target_process_id
+reporter_logon_id
+process_parent_id
+process_target_id
+user_session_id
+thread_id
+dst_nat_ip_public
+meta_dst_ip_geo.asn
+meta_dst_nat_ip_geo.asn
+meta_src__ip_geo.asn
+meta_src_nat_ip_geo.asn
+dst_port
+src_port
+dst_nat_port
+src_nat_port
+network_initiated
+module_signed
+version
+
+
+
+
+(?<!\.|event_id|text):"
+.text:"
+
+also:
+(?<!\.|event_id|text|alert|Descritpion|query|filter|index|query_string|priority|minutes|description):(?! )
+
+
+tools/sigmac -t elastalert -O keyword_blacklist="*" -c tools/config/generic/windows-audit.yml -c sigmac-config.yml  -o /tmp/test.txt rules/windows/process_creation/win_susp_bcdedit.yml && cat /tmp/test.txt
+
+
+
+keyword_blacklist="process_id","event_id","record_number","reporter_logon_id","SubjectLogonId","TargetLogonId","user_logon_id","process_id","pipeline_id","sequence_number","sysmon_version","target_process_id","reporter_logon_id","process_parent_id","process_target_id","user_session_id","thread_id","dst_nat_ip_public","meta_dst_ip_geo.asn","meta_dst_nat_ip_geo.asn","meta_src__ip_geo.asn","meta_src_nat_ip_geo.asn","dst_port","src_port","dst_nat_port","src_nat_port","network_initiated","module_signed","version"
