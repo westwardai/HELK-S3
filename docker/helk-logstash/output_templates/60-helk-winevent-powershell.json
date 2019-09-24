@@ -1,0 +1,268 @@
+{
+  "order": 60,
+  "index_patterns": [ "logs-endpoint-winevent-powershell-*" ],
+  "version": 2019090201,
+  "mappings":{
+    "properties": {
+      "powershell": {
+        "dynamic": "false",
+        "properties": {
+          "command": {
+            "properties": {
+              "name": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              },
+              "line": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              },
+              "path": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              },
+              "type": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              }
+            }
+          },
+          "connected_user": {
+            "type": "keyword",
+            "fields": {
+              "text": {
+                "analyzer": "standard",
+                "type": "text"
+              }
+            }
+          },
+          "param": {
+            "properties": {
+              "name": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              },
+              "value": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              },
+              "value_nonalphanumeric": {
+                "type": "text"
+              }
+            }
+          },
+          "pipeline_id": {
+            "type": "long"
+          },
+          "remaining_payload": {
+            "type": "keyword",
+            "fields": {
+              "text": {
+                "analyzer": "standard",
+                "type": "text"
+              }
+            }
+          },
+          "runspace_id": {
+            "type": "keyword",
+            "fields": {
+              "text": {
+                "analyzer": "standard",
+                "type": "text"
+              }
+            }
+          },
+          "scriptblock": {
+            "properties": {
+              "id": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              },
+              "message_number": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              },
+              "message_total": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              },
+              "text": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              }
+            }
+          },
+          "sequence_number": {
+            "type": "long"
+          },
+          "shell_id": {
+            "type": "keyword",
+            "fields": {
+              "text": {
+                "analyzer": "standard",
+                "type": "text"
+              }
+            }
+          },
+          "script": {
+            "properties": {
+              "name": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              },
+              "path": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              }
+            }
+          },
+          "host": {
+            "properties": {
+              "application": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              },
+              "name": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              },
+              "version": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              },
+              "id": {
+                "type": "keyword",
+                "fields": {
+                  "text": {
+                    "analyzer": "standard",
+                    "type": "text"
+                  }
+                }
+              }
+            }
+          },
+          "engine_version": {
+            "type": "keyword",
+            "fields": {
+              "text": {
+                "analyzer": "standard",
+                "type": "text"
+              }
+            }
+          },
+          "newproviderstate": {
+            "type": "keyword",
+            "fields": {
+              "text": {
+                "analyzer": "standard",
+                "type": "text"
+              }
+            }
+          },
+          "providername": {
+            "type": "keyword",
+            "fields": {
+              "text": {
+                "analyzer": "standard",
+                "type": "text"
+              }
+            }
+          },
+          "newengine_state": {
+            "type": "keyword",
+            "fields": {
+              "text": {
+                "analyzer": "standard",
+                "type": "text"
+              }
+            }
+          },
+          "previousengine_state": {
+            "type": "keyword",
+            "fields": {
+              "text": {
+                "analyzer": "standard",
+                "type": "text"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

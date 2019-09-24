@@ -1,18 +1,18 @@
 {
   "order": 10,
   "index_patterns": [ "logs-*" ],
-  "version": 2019060301,
+  "version": 2019090101,
   "settings": {
     "index": {
       "mapping": {
         "ignore_malformed": true,
-        "total_fields.limit": "3750",
+        "total_fields.limit": "10000",
         "coerce": true
       }
     },
-    "refresh_interval": "30s",
+    "refresh_interval": "10s",
     "number_of_replicas": 0,
-    "number_of_shards": 1
+    "number_of_shards": 2
   },
   "mappings": {
     "dynamic": "true",
@@ -21,12 +21,11 @@
         "strings": {
           "match_mapping_type": "string",
           "mapping": {
+            "ignore_above": 4096,
             "type": "text",
-            "norms": false,
             "fields": {
-              "keyword": {
-                "type": "keyword",
-                "ignore_above": 1024
+              "text": {
+                "type": "keyword"
               }
             }
           }
@@ -40,26 +39,33 @@
       "@version": {
         "type": "keyword"
       },
-      "log_ingest_timestamp": {
+      "z_original_timestamp": {
         "type": "date"
       },
       "meta_log_tags": {
-        "type": "text",
-        "norms": false,
+        "type": "keyword",
         "fields": {
-          "keyword": {
-            "type": "keyword"
+          "text": {
+            "type": "text"
           }
         }
       },
       "z_logstash_type": {
         "enabled": false
       },
-      "z_original_message": {
-        "enabled": false
+      "event_original_message": {
+        "type": "text",
+        "norms": false
       },
-      "z_logstash_pipeline": {
-        "enabled": false
+      "event_etl_pipeline": {
+        "type": "keyword"
+      },
+      "event_etl_processed_timestamp": {
+        "type": "date"
+      },
+      "message": {
+        "type": "alias",
+        "path": "event_original_message"
       }
     }
   }

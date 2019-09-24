@@ -1,7 +1,7 @@
 {
   "order": 50,
   "index_patterns": [ "logs-endpoint-winevent-*" ],
-  "version": 2019062301,
+  "version": 2019090101,
   "settings": {
     "analysis": {
       "analyzer": {
@@ -46,129 +46,139 @@
           "filter": [ "lowercase" ]
         }
       }
-    },
-    "index": {
-      "mapping": {
-        "total_fields.limit": "3000"
-      }
-    },
-    "refresh_interval": "30s"
+    }
   },
   "mappings": {
     "properties":{
-      "process_id":{"type":"integer"},
-      "event_id":{"type":"integer"},
-      "record_number":{"type":"long"},
+      "event_id": {
+        "type":"long"
+      },
+      "record_number":{
+        "type":"long"
+      },
       "keywords": {
-        "type": "text",
-        "norms": false,
+        "type": "keyword",
         "fields": {
-          "keyword": {
-            "type": "keyword"
+          "text": {
+            "type": "text"
           }
         }
       },
       "file_name": {
-        "type": "text",
-        "norms": false,
-        "analyzer": "cli_n_file_analyzer",
+        "eager_global_ordinals": true,
+        "ignore_above": 7500,
+        "type": "keyword",
         "fields": {
-          "keyword": {
-            "ignore_above": 7500,
-            "type": "keyword",
-            "eager_global_ordinals": true
+          "text": {
+            "analyzer": "cli_n_file_analyzer",
+            "type": "text"
           }
         }
       },
       "logon_process_name": {
-        "type": "text",
-        "norms": false,
-        "analyzer": "cli_n_file_analyzer",
+        "eager_global_ordinals": true,
+        "ignore_above": 7500,
+        "type": "keyword",
         "fields": {
-          "keyword": {
-            "ignore_above": 7500,
-            "type": "keyword",
-            "eager_global_ordinals": true
+          "text": {
+            "analyzer": "cli_n_file_analyzer",
+            "type": "text"
           }
         }
       },
       "object_name": {
-        "type": "text",
-        "norms": false,
-        "analyzer": "cli_n_file_analyzer",
+        "ignore_above": 7500,
+        "type": "keyword",
         "fields": {
-          "keyword": {
-            "ignore_above": 7500,
-            "type": "keyword"
+          "text": {
+            "analyzer": "cli_n_file_analyzer",
+            "type": "text"
           }
         }
       },
       "process_command_line": {
-        "type": "text",
-        "norms": false,
-        "analyzer": "cli_n_file_analyzer",
+        "eager_global_ordinals": true,
+        "ignore_above": 7500,
+        "type": "keyword",
         "fields": {
-          "keyword": {
-            "ignore_above": 7500,
-            "type": "keyword",
-            "eager_global_ordinals": true
+          "text": {
+            "analyzer": "cli_n_file_analyzer",
+            "type": "text"
           }
         }
       },
       "process_current_directory": {
-        "type": "text",
-        "norms": false,
-        "analyzer": "cli_n_file_analyzer",
+        "ignore_above": 7500,
+        "type": "keyword",
         "fields": {
-          "keyword": {
-            "ignore_above": 7500,
-            "type": "keyword"
+          "text": {
+            "analyzer": "cli_n_file_analyzer",
+            "type": "text"
           }
         }
       },
       "process_parent_path": {
-        "type": "text",
-        "norms": false,
-        "analyzer": "cli_n_file_analyzer",
+        "eager_global_ordinals": true,
+        "ignore_above": 7500,
+        "type": "keyword",
         "fields": {
-          "keyword": {
-            "ignore_above": 7500,
-            "type": "keyword",
-            "eager_global_ordinals": true
+          "text": {
+            "analyzer": "cli_n_file_analyzer",
+            "type": "text"
           }
         }
       },
       "process_parent_command_line": {
-        "type": "text",
-        "norms": false,
-        "analyzer": "cli_n_file_analyzer",
+        "eager_global_ordinals": true,
+        "ignore_above": 7500,
+        "type": "keyword",
         "fields": {
-          "keyword": {
-            "ignore_above": 7500,
-            "type": "keyword",
-            "eager_global_ordinals": true
+          "text": {
+            "analyzer": "cli_n_file_analyzer",
+            "type": "text"
           }
         }
       },
       "process_path": {
-        "type": "text",
-        "norms": false,
-        "analyzer": "cli_n_file_analyzer",
+        "ignore_above": 7500,
+        "eager_global_ordinals": true,
+        "type": "keyword",
         "fields": {
-          "keyword": {
-            "ignore_above": 7500,
-            "type": "keyword",
-            "eager_global_ordinals": true
+          "text": {
+            "analyzer": "cli_n_file_analyzer",
+            "type": "text"
           }
         }
       },
-      "process_target_id": {
-        "type": "long",
-        "fields": {
-          "keyword": {
-            "type": "keyword"
-          }
-        }
+      "process_id": {
+        "type":"long"
+      },
+      "process_parent_id": {
+        "type":"long"
+      },
+      "reporter_logon_id": {
+        "type": "long"
+      },
+      "target_process_id": {
+        "type": "long"
+      },
+      "thread_id": {
+        "type": "long"
+      },
+      "thread_new_id": {
+        "type": "long"
+      },
+      "user_logon_id": {
+        "type": "long"
+      },
+      "user_session_id": {
+        "type":"long"
+      },
+      "SubjectLogonId": {
+        "type": "long"
+      },
+      "TargetLogonId": {
+        "type": "long"
       }
     }
   }
