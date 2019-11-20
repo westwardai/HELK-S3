@@ -528,8 +528,6 @@ install_helk(){
     set_elasticsearch_password
     prepare_helk
     build_helk
-    check_logstash_connected
-    show_final_information
 }
 
 usage(){
