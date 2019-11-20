@@ -17,7 +17,7 @@ INSTALL_ERROR_CHECK_WIKI="$HELK_ERROR_TAG Check the requirements section in our 
 # *********** Variables for user modification ***************
 # Careful editing unless you know what you are doing :)
 ## In MBs
-INSTALL_MINIMUM_MEMORY=5000
+INSTALL_MINIMUM_MEMORY=2000
 ## In MBs
 INSTALL_MINIMUM_MEMORY_NOTEBOOK=8000
 ## In GBs
